@@ -49,11 +49,18 @@ A Data Science and Engineering student at UPC currently working as a Frontend En
 <hr>
 <br>
 
+<h2 align="">My Contributions 🐍</h2>
 
-<h2 align="">Contact information 📫</h2>
+
+<hr>
+<br>
+
+
+<h2 align="">Contact Information 📫</h2>
 <div align="">
   <a href="https://www.linkedin.com/in/biel-altimira-tarter/"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a>
   <a href="mailto:tarteraltimirabiel@gmail.com"><img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white"></a>
 </div>
+
 
 <img width=100% src="https://capsule-render.vercel.app/api?type=waving&color=cf490c&height=120&section=footer" alt="footer"/>
