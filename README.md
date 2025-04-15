@@ -1,4 +1,9 @@
-# Hi there, I'm Biel 👋
+
+<img width=100% src="https://capsule-render.vercel.app/api?type=waving&color=cf490c&height=120&section=header" alt="header"/> 
+
+
+[![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Ubuntu&weight=700&size=32&pause=1000&color=CF490C&width=435&lines=Hi+there%2C+I'm+Biel+%F0%9F%91%8B)](https://git.io/typing-svg)
+
 A Data Science and Engineering student at UPC currently working as a Frontend Engineer at FIBVisiona.
 
 ### I’m currently working on 🔭 
@@ -12,6 +17,8 @@ A Data Science and Engineering student at UPC currently working as a Frontend En
 - Options Pricing
 - Statistical Arbitrage
 - Pairs Trading
+  
+<hr>
 <br>
 
 <h2 align="">My Skills 🎯</h2>
@@ -39,10 +46,14 @@ A Data Science and Engineering student at UPC currently working as a Frontend En
 
 </p>
 
+<hr>
 <br>
+
 
 <h2 align="">Contact information 📫</h2>
 <div align="">
   <a href="https://www.linkedin.com/in/biel-altimira-tarter/"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a>
   <a href="mailto:tarteraltimirabiel@gmail.com"><img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white"></a>
 </div>
+
+<img width=100% src="https://capsule-render.vercel.app/api?type=waving&color=cf490c&height=120&section=footer" alt="footer"/>
