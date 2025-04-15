@@ -50,6 +50,7 @@ A Data Science and Engineering student at UPC currently working as a Frontend En
 <br>
 
 <h2 align="">My Contributions 🐍</h2>
+
 ![snake gif](https://github.com/bielupc/bielupc/blob/output/github-snake-dark.svg)
 
 
