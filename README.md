@@ -4,7 +4,7 @@
 
 [![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Ubuntu&weight=700&size=32&pause=1000&color=CF490C&width=435&lines=Hi+there%2C+I'm+Biel+%F0%9F%91%8B)](https://git.io/typing-svg)
 
-A Data Science and Engineering student at UPC currently working as a Frontend Engineer at FIBVisiona.
+A Data Science and Engineering student at UPC currently working as a Software Engineer Intern at Openfort.
 
 ### I’m currently working on 🔭 
 - Improving my skills as a frontend and data scientist
