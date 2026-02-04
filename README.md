@@ -7,16 +7,15 @@
 A Data Science and Engineering student at UPC currently working as an IT Consultant at RSM.
 
 ### I’m currently working on 🔭 
-- Improving my skills as a frontend and data scientist
+- Improving my skills as a data scientist & software engineer
 - Learning as much as possible
 - Creating as much as possible
   
 ### I’m currently learning 🌱
 - Astro
-- MLOps
-- Options Pricing
-- Statistical Arbitrage
-- Pairs Trading
+- Statistical arbitrage
+- Credit risk modeling
+- Blockchain data analysis
   
 <hr>
 <br>
