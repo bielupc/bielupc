@@ -1,0 +1,57 @@
+name: Update Profile Card
+
+on:
+  schedule:
+    - cron: "0 */6 * * *"
+  workflow_dispatch:
+  push:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    concurrency:
+      group: profile-card
+      cancel-in-progress: true
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies (if needed)
+        run: |
+          python -m pip install --upgrade pip
+          # pip install requests or others if your script needs them
+
+      - name: Configure git authentication
+        run: |
+          git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}.git
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Generate SVGs
+        env:
+          GITHUB_TOKEN: ${{ secrets.PAT }}
+          GITHUB_USERNAME: bielupc
+        run: |
+          python scripts/render_card.py
+
+      - name: Commit and push changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git add profile/*.svg
+
+          git diff --cached --quiet || (
+            git commit -m "chore: update profile card"
+            git push
+          )
