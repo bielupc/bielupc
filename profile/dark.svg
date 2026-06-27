@@ -47,8 +47,8 @@
 <text x="5592.0" y="204.0" fill="#ebdbb2" font-size="72" font-weight="normal" xml:space="preserve">Linux, Android 15</text>
 <text x="2028.0" y="288.0" fill="#928374" font-size="72" font-weight="normal" xml:space="preserve">. </text>
 <text x="2116.0" y="288.0" fill="#83a598" font-size="72" font-weight="normal" xml:space="preserve">Uptime:</text>
-<text x="2424.0" y="288.0" fill="#928374" font-size="72" font-weight="normal" xml:space="preserve"> ............................................................ </text>
-<text x="5152.0" y="288.0" fill="#ebdbb2" font-size="72" font-weight="normal" xml:space="preserve">22 years, 0 months, 30 days</text>
+<text x="2424.0" y="288.0" fill="#928374" font-size="72" font-weight="normal" xml:space="preserve"> ............................................................. </text>
+<text x="5196.0" y="288.0" fill="#ebdbb2" font-size="72" font-weight="normal" xml:space="preserve">22 years, 1 months, 0 days</text>
 <text x="2028.0" y="372.0" fill="#928374" font-size="72" font-weight="normal" xml:space="preserve">. </text>
 <text x="2116.0" y="372.0" fill="#83a598" font-size="72" font-weight="normal" xml:space="preserve">Host:</text>
 <text x="2336.0" y="372.0" fill="#928374" font-size="72" font-weight="normal" xml:space="preserve"> ..................................................... </text>
@@ -111,13 +111,13 @@
 <text x="2028.0" y="1884.0" fill="#928374" font-size="72" font-weight="normal" xml:space="preserve">. </text>
 <text x="2116.0" y="1884.0" fill="#83a598" font-size="72" font-weight="normal" xml:space="preserve">LOC:</text>
 <text x="2292.0" y="1884.0" fill="#928374" font-size="72" font-weight="normal" xml:space="preserve"> ............................. </text>
-<text x="3656.0" y="1884.0" fill="#ebdbb2" font-size="72" font-weight="normal" xml:space="preserve">21,726,368</text>
+<text x="3656.0" y="1884.0" fill="#ebdbb2" font-size="72" font-weight="normal" xml:space="preserve">21,725,262</text>
 <text x="4096.0" y="1884.0" fill="#ebdbb2" font-size="72" font-weight="normal" xml:space="preserve">    </text>
 <text x="4272.0" y="1884.0" fill="#928374" font-size="72" font-weight="normal" xml:space="preserve">. </text>
 <text x="4360.0" y="1884.0" fill="#83a598" font-size="72" font-weight="normal" xml:space="preserve">Added/Removed:</text>
 <text x="4976.0" y="1884.0" fill="#928374" font-size="72" font-weight="normal" xml:space="preserve"> ... </text>
-<text x="5196.0" y="1884.0" fill="#b8bb26" font-size="72" font-weight="normal" xml:space="preserve">17,017,252</text>
+<text x="5196.0" y="1884.0" fill="#b8bb26" font-size="72" font-weight="normal" xml:space="preserve">17,016,328</text>
 <text x="5636.0" y="1884.0" fill="#928374" font-size="72" font-weight="normal" xml:space="preserve">++ / </text>
-<text x="5856.0" y="1884.0" fill="#fb4934" font-size="72" font-weight="normal" xml:space="preserve">4,709,116</text>
+<text x="5856.0" y="1884.0" fill="#fb4934" font-size="72" font-weight="normal" xml:space="preserve">4,708,934</text>
 <text x="6252.0" y="1884.0" fill="#928374" font-size="72" font-weight="normal" xml:space="preserve">--</text>
 </svg>
