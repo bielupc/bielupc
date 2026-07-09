@@ -199,14 +199,6 @@ def load_art():
     nonblank = [l for l in lines if l.strip()]
     indent = min(len(l) - len(l.lstrip(" ")) for l in nonblank)
     lines = [l[indent:] if len(l) >= indent else "" for l in lines]
-
-    STRETCH = 0.60
-    w0 = max(len(l) for l in lines)
-    lines = [l.ljust(w0) for l in lines]
-    def hresample(line, m):
-        n = len(line)
-        return "".join(line[min(n - 1, int(j * n / m))] for j in range(m))
-    lines = [hresample(l, round(w0 * STRETCH)) for l in lines]
     return [l.rstrip() for l in lines]
 
 
@@ -314,20 +306,25 @@ def render_svg(art, rows, art_w, panel_w, gap_cols, theme):
     pal = PALETTES[theme]
 
     content_cols = max(sum(len(t) for t, _ in row) for row in rows) if rows else 0
-    total_cols = art_w + gap_cols + content_cols
-    width = PAD * 2 + total_cols * CHAR_W
     content_h = len(rows) * LINE_H
     height = PAD * 2 + content_h
 
+    # Scale the whole art block uniformly to fit the content height:
+    # no aspect-ratio distortion, it looks exactly as it does in ascii-art.txt
     art_h = len(art) * LINE_H
-    art_scale_y = content_h / art_h if art_h > 0 else 1
+    art_scale = min(1.0, content_h / art_h) if art_h > 0 else 1.0
+    art_disp_w = art_w * CHAR_W * art_scale
+    art_y = PAD + (content_h - art_h * art_scale) / 2
+
+    content_x = PAD + art_disp_w + gap_cols * CHAR_W
+    width = content_x + content_cols * CHAR_W + PAD
 
     out = [f'<svg xmlns="http://www.w3.org/2000/svg" width="{width:.0f}" height="{height:.0f}" '
            f'viewBox="0 0 {width:.0f} {height:.0f}" font-family="{FONT_FAMILY}">',
            f'<rect width="100%" height="100%" fill="{pal["bg"]}" rx="10"/>']
 
-    # Scaled ASCII art
-    out.append(f'<g transform="translate({PAD:.1f},{PAD:.1f}) scale(1,{art_scale_y:.6f})">')
+    # Uniformly scaled ASCII art
+    out.append(f'<g transform="translate({PAD:.1f},{art_y:.1f}) scale({art_scale:.6f})">')
     for i, (text, role) in enumerate(art):
         if text:
             weight = "bold" if role in BOLD_ROLES else "normal"
@@ -340,7 +337,6 @@ def render_svg(art, rows, art_w, panel_w, gap_cols, theme):
     out.append('</g>')
 
     # Content rows
-    content_x = PAD + (art_w + gap_cols) * CHAR_W
     for i, row in enumerate(rows):
         x = content_x
         y = PAD + i * LINE_H + FONT_SIZE
