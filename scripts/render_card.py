@@ -200,7 +200,7 @@ def load_art():
     indent = min(len(l) - len(l.lstrip(" ")) for l in nonblank)
     lines = [l[indent:] if len(l) >= indent else "" for l in lines]
 
-    STRETCH = 0.85
+    STRETCH = 0.60
     w0 = max(len(l) for l in lines)
     lines = [l.ljust(w0) for l in lines]
     def hresample(line, m):
@@ -217,38 +217,31 @@ def build_rows(stats):
     loc = stats["additions"] + stats["deletions"] \
         if stats["additions"] is not None and stats["deletions"] is not None else None
 
-    # Determine panel width from static single-column rows
+    # GitHub stats rendered as single-column rows (keeps the panel narrow,
+    # so the whole card scales up larger when GitHub shrinks it to fit)
+    if stats["additions"] is None or stats["deletions"] is None:
+        ar_extra = [("—", "val")]
+    else:
+        ar_extra = [(fmt(stats["additions"]), "green"), ("++ / ", "dim"),
+                    (fmt(stats["deletions"]), "red"), ("--", "dim")]
+    gh_fields = [
+        ("Repos", fmt(stats["repos"]), []),
+        ("Commits", fmt(stats["commits"]), []),
+        ("LOC", fmt(loc), []),
+        ("Added/Removed", "", ar_extra),
+    ]
+
+    # Determine panel width from the longest single-column row
     panel_w = len(USER) + 1 + len(HOST) + 7
     for it in fields:
         if it[0] == "field":
             panel_w = max(panel_w, 2 + len(it[1]) + 1 + 1 + 2 + 1 + len(it[2]))
         elif it[0] == "section":
             panel_w = max(panel_w, len(it[1]) + 4)
-
-    # Compute width needed for 2-col GitHub stats
-    COL_GAP = 4
-
-    def cell_w(label, val, extra_len=0):
-        return 7 + len(label) + len(val) + extra_len
-
-    gh_cells = [
-        ("Repos", fmt(stats["repos"])),
-        ("Commits", fmt(stats["commits"])),
-        ("LOC", fmt(loc)),
-    ]
-    if stats["additions"] is None or stats["deletions"] is None:
-        gh_cells.append(("Added/Removed", "—", 0))
-    else:
-        ar_extra = len(fmt(stats["additions"])) + len("++ / ") + len(fmt(stats["deletions"])) + len("--")
-        gh_cells.append(("Added/Removed", "", ar_extra))
-
-    max_cell = max(cell_w(*c) for c in gh_cells)
-    needed_2col = 2 * max_cell + COL_GAP
-    panel_w = max(panel_w, needed_2col) + 1
-
-    # Ensure even split between columns
-    if (panel_w - COL_GAP) % 2 != 0:
-        panel_w += 1
+    for lab, val, extra in gh_fields:
+        extra_len = sum(len(t) for t, _ in extra)
+        panel_w = max(panel_w, 2 + len(lab) + 1 + 1 + 2 + 1 + len(val) + extra_len)
+    panel_w += 1
 
     # Build header + static rows
     rows = [[(USER, "head"), ("@", "dim"), (HOST, "head"),
@@ -266,37 +259,20 @@ def build_rows(stats):
             rows.append([(". ", "dim"), (lab + ":", "label"),
                          (" " + "." * dots + " ", "dim"), (val, "val")])
 
-    # ─── GitHub Stats 2x2 grid ───
-    half = (panel_w - COL_GAP) // 2
-
-    def build_2col_row(label1, val1, extra1, label2, val2, extra2):
-        def col(label, val, extra):
-            extra_len = sum(len(t) for t, _ in extra)
-            dots = max(2, half - 5 - len(label) - len(val) - extra_len)
-            segs = [(". ", "dim"), (label + ":", "label"),
-                    (" " + "." * dots + " ", "dim")]
-            if val:
-                segs.append((val, "val"))
-            segs.extend(extra)
-            return segs
-        return col(label1, val1, extra1) + [(" " * COL_GAP, "fg")] + col(label2, val2, extra2)
-
+    # ─── GitHub Stats ───
     rows.append([])
     rows.append([("- ", "dim"), ("GitHub Stats", "sect"),
                  (" " + "─" * (panel_w - len("GitHub Stats") - 3), "dim")])
 
-    # Row 1: Repos | Commits
-    rows.append(build_2col_row("Repos", fmt(stats["repos"]), [],
-                               "Commits", fmt(stats["commits"]), []))
-
-    # Row 2: LOC | Added/Removed
-    if stats["additions"] is None or stats["deletions"] is None:
-        ar_extra = [("—", "val")]
-    else:
-        ar_extra = [(fmt(stats["additions"]), "green"), ("++ / ", "dim"),
-                    (fmt(stats["deletions"]), "red"), ("--", "dim")]
-    rows.append(build_2col_row("LOC", fmt(loc), [],
-                               "Added/Removed", "", ar_extra))
+    for lab, val, extra in gh_fields:
+        extra_len = sum(len(t) for t, _ in extra)
+        dots = max(2, panel_w - 5 - len(lab) - len(val) - extra_len)
+        segs = [(". ", "dim"), (lab + ":", "label"),
+                (" " + "." * dots + " ", "dim")]
+        if val:
+            segs.append((val, "val"))
+        segs.extend(extra)
+        rows.append(segs)
 
     return rows, panel_w
 
