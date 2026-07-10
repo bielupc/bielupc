@@ -48,7 +48,7 @@
 <text x="1628.2" y="288.0" fill="#586069" font-size="72" font-weight="normal" xml:space="preserve">. </text>
 <text x="1716.2" y="288.0" fill="#076678" font-size="72" font-weight="normal" xml:space="preserve">Uptime:</text>
 <text x="2024.2" y="288.0" fill="#586069" font-size="72" font-weight="normal" xml:space="preserve"> ................... </text>
-<text x="2948.2" y="288.0" fill="#24292e" font-size="72" font-weight="normal" xml:space="preserve">22 years, 1 months, 12 days</text>
+<text x="2948.2" y="288.0" fill="#24292e" font-size="72" font-weight="normal" xml:space="preserve">22 years, 1 months, 13 days</text>
 <text x="1628.2" y="372.0" fill="#586069" font-size="72" font-weight="normal" xml:space="preserve">. </text>
 <text x="1716.2" y="372.0" fill="#076678" font-size="72" font-weight="normal" xml:space="preserve">Host:</text>
 <text x="1936.2" y="372.0" fill="#586069" font-size="72" font-weight="normal" xml:space="preserve"> ............ </text>
@@ -109,13 +109,13 @@
 <text x="4004.2" y="1884.0" fill="#24292e" font-size="72" font-weight="normal" xml:space="preserve">799</text>
 <text x="1628.2" y="1968.0" fill="#586069" font-size="72" font-weight="normal" xml:space="preserve">. </text>
 <text x="1716.2" y="1968.0" fill="#076678" font-size="72" font-weight="normal" xml:space="preserve">LOC:</text>
-<text x="1892.2" y="1968.0" fill="#586069" font-size="72" font-weight="normal" xml:space="preserve"> ....................................... </text>
-<text x="3696.2" y="1968.0" fill="#24292e" font-size="72" font-weight="normal" xml:space="preserve">21,730,357</text>
+<text x="1892.2" y="1968.0" fill="#586069" font-size="72" font-weight="normal" xml:space="preserve"> ........................................ </text>
+<text x="3740.2" y="1968.0" fill="#24292e" font-size="72" font-weight="normal" xml:space="preserve">3,705,324</text>
 <text x="1628.2" y="2052.0" fill="#586069" font-size="72" font-weight="normal" xml:space="preserve">. </text>
 <text x="1716.2" y="2052.0" fill="#076678" font-size="72" font-weight="normal" xml:space="preserve">Added/Removed:</text>
-<text x="2332.2" y="2052.0" fill="#586069" font-size="72" font-weight="normal" xml:space="preserve"> ............. </text>
-<text x="2992.2" y="2052.0" fill="#2ea043" font-size="72" font-weight="normal" xml:space="preserve">17,020,547</text>
+<text x="2332.2" y="2052.0" fill="#586069" font-size="72" font-weight="normal" xml:space="preserve"> .............. </text>
+<text x="3036.2" y="2052.0" fill="#2ea043" font-size="72" font-weight="normal" xml:space="preserve">2,131,443</text>
 <text x="3432.2" y="2052.0" fill="#586069" font-size="72" font-weight="normal" xml:space="preserve">++ / </text>
-<text x="3652.2" y="2052.0" fill="#cf222e" font-size="72" font-weight="normal" xml:space="preserve">4,709,810</text>
+<text x="3652.2" y="2052.0" fill="#cf222e" font-size="72" font-weight="normal" xml:space="preserve">1,573,881</text>
 <text x="4048.2" y="2052.0" fill="#586069" font-size="72" font-weight="normal" xml:space="preserve">--</text>
 </svg>
