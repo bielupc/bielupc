@@ -12,6 +12,7 @@ import calendar
 import html
 import os
 import sys
+import urllib.error
 import urllib.request
 from datetime import date
 import json
@@ -97,6 +98,26 @@ def fetch_live_stats(username):
         req = urllib.request.Request(f"https://api.github.com{path}", headers=headers)
         with urllib.request.urlopen(req, timeout=20) as r:
             return json.loads(r.read())
+
+    # ── Preflight: fail loudly if a token is present but GitHub rejects it. ──
+    # Every individual fetch below degrades silently to '—' so transient
+    # errors (rate limits, a single repo's stats being unavailable) don't
+    # sink the whole card. But a 401 means the token itself is bad — which
+    # would otherwise publish an all-'—' card while the workflow reports
+    # success (exactly what happened when the PAT expired). Stop hard here.
+    try:
+        req = urllib.request.Request("https://api.github.com/user", headers=headers)
+        with urllib.request.urlopen(req, timeout=20) as r:
+            r.read()
+    except urllib.error.HTTPError as e:
+        if e.code == 401:
+            print("error: GitHub rejected the token (HTTP 401 Unauthorized). "
+                  "The PAT secret is expired, revoked, or invalid — refresh it.",
+                  file=sys.stderr)
+            sys.exit(1)
+        print(f"warning: token preflight got HTTP {e.code}, continuing", file=sys.stderr)
+    except Exception as e:
+        print(f"warning: token preflight failed ({e}), continuing", file=sys.stderr)
 
     stats = {"repos": None, "commits": None, "contributed": None,
              "additions": None, "deletions": None}
