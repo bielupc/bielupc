@@ -40,7 +40,7 @@ jobs:
       - name: Generate SVGs
         env:
           GITHUB_TOKEN: ${{ secrets.PAT }}
-          GITHUB_USERNAME: bielupc
+          GITHUB_USERNAME: baltimira
         run: |
           python scripts/render_card.py
 

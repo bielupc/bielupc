@@ -21,7 +21,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 OUT_DIR = os.path.join(HERE, "..", "profile")
 
 # ────────────────────────────── EDIT THIS ──────────────────────────────
-USERNAME     = os.environ.get("GITHUB_USERNAME", "bielupc")
+USERNAME     = os.environ.get("GITHUB_USERNAME", "baltimira")
 USER, HOST   = "biel", "altimira"          # renders as  biel@altimira
 DOB          = date(2004, 5, 27)
 
